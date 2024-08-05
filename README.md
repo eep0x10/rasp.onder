@@ -19,13 +19,17 @@ Para o caso atual, a ferramenta a ser ativada sera o "Responder", o qual terá f
 * Conversor LAN - USB
 * Fita Dupla-Face + Caixa (20cm x 15cm +-)
 
+# Etapas:
 
-
-
+## Setup Raspberry
+[_] kali ISO
+[_] kali LCD Screen
+[_] Responder as a Service: https://github.com/eep0x10/runAs.service/tree/main
+[_] Scripts:
 
 
 start_resp.sh
-
+```
 # Reset MAC Address Random
 #sudo ifconfig eth1 hw ether $(ethtool -P eth1 | awk '{print $3}') 1>&-
 
@@ -45,7 +49,7 @@ sudo macchanger -m "$valor" eth1 2>&- # Substitua "eth1" pela interface de rede 
 cd /usr/share/responder
 sudo python3 automation.py
 done
-
+```
 
 
 resp-onder.sh
