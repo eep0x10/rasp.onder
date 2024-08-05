@@ -8,21 +8,31 @@ Para o caso atual, a ferramenta a ser ativada sera o "Responder", o qual terá f
 
 # Equipamentos
 
+## V1 - RaspberryPi3
 * Raspberry PI (recomendável PI3 1GB RAM)
 * 1 Cabo microUSB/USB-C (Depende do RaspberryPI)
 * Tela Touch RaspberryPI (Recomendável/Não Obrigatório)
-* Switch de rede
-* Conversor de energia do Switch para USB
-* 2 Cabos de Rede RJ45 (Pequenos)
 * 1 PowerBank (Pequeno)
 * Teclado Bluethooth (Recomendável/Não Obrigatório)
-* Conversor LAN - USB
-* Fita Dupla-Face + Caixa (20cm x 15cm +-)
 
+## V2 - Pwnagotchi
+https://pwnagotchi.ai/
+* UPS Lite V1.2 Poder HAT Board (Bateria)
+* RaspberryPI ZeroW Dev Board(Solded)
+* RaspberryPI ZeroW Ethernet HUB, HUB USB... (Inputs)
+* E-Ink Display HAT (Screen)
+* Adaptador Wi-FI - USB (SSH)
+
+## Geral
+* Switch de rede
+* Conversor de energia do Switch para USB
+* 2 Cabos de Rede RJ45 (Pequenos/Retrateis) 1metro
+* Adaptador RJ45-USB
+* 
 # Etapas:
 
 ## Setup Raspberry
-- [ ] kali ISO
+- [ ] kali ISO: https://www.kali.org/docs/arm/raspberry-pi-3/
 - [ ] kali LCD Screen
 - [ ] Responder as a Service: https://github.com/eep0x10/runAs.service/tree/main
 - [ ] Scripts:
@@ -51,8 +61,8 @@ sudo python3 automation.py
 done
 ```
 
-
 resp-onder.sh
+```
 cd /usr/share/responder
 sudo python3 /usr/share/responder/automation.py
-
+```
