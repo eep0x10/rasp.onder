@@ -22,10 +22,10 @@ Para o caso atual, a ferramenta a ser ativada sera o "Responder", o qual terá f
 # Etapas:
 
 ## Setup Raspberry
-[_] kali ISO
-[_] kali LCD Screen
-[_] Responder as a Service: https://github.com/eep0x10/runAs.service/tree/main
-[_] Scripts:
+- [ ] kali ISO
+- [ ] kali LCD Screen
+- [ ] Responder as a Service: https://github.com/eep0x10/runAs.service/tree/main
+- [ ] Scripts:
 
 
 start_resp.sh
