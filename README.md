@@ -17,11 +17,11 @@ Para o caso atual, a ferramenta a ser ativada sera o "Responder", o qual terá f
 
 ## V2 - Pwnagotchi
 https://pwnagotchi.ai/
-* UPS Lite V1.2 Poder HAT Board (Bateria)
-* RaspberryPI ZeroW Dev Board(Solded)
-* RaspberryPI ZeroW Ethernet HUB, HUB USB... (Inputs)
-* E-Ink Display HAT (Screen)
-* Adaptador Wi-FI - USB (SSH)
+* UPS Lite V1.2 Poder HAT Board (Bateria): https://pt.aliexpress.com/item/1005006685459725.html?spm=a2g0o.order_list.order_list_main.41.a4c2caa4EFlwFG&gatewayAdapt=glo2bra
+* RaspberryPI ZeroW Dev Board(Solded): https://pt.aliexpress.com/item/1005005171008740.html?spm=a2g0o.order_list.order_list_main.11.a4c2caa4EFlwFG&gatewayAdapt=glo2bra
+* RaspberryPI ZeroW Ethernet HUB, HUB USB... (Inputs): https://pt.aliexpress.com/item/4000022488083.html?spm=a2g0o.order_list.order_list_main.5.a4c2caa4EFlwFG&gatewayAdapt=glo2bra
+* E-Ink Display HAT (Screen): https://pt.aliexpress.com/item/4000477030075.html?spm=a2g0o.order_list.order_list_main.29.a4c2caa4EFlwFG&gatewayAdapt=glo2bra
+* Adaptador Wi-FI - USB (SSH): https://pt.aliexpress.com/item/1005006040988974.html?spm=a2g0o.order_list.order_list_main.23.a4c2caa4EFlwFG&gatewayAdapt=glo2bra
 
 ## Geral
 * Switch de rede
