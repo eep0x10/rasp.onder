@@ -33,7 +33,7 @@ https://pwnagotchi.ai/
 
 ## Setup Raspberry
 - [ ] kali ISO: https://www.kali.org/docs/arm/raspberry-pi-3/
-- [ ] kali LCD Screen
+- [ ] kali LCD Screen: https://github.com/lcdwiki/LCD-show-kali
 - [ ] Responder as a Service: https://github.com/eep0x10/runAs.service/tree/main
 - [ ] Scripts:
 
